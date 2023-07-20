@@ -1,3 +1,6 @@
+import axios from 'axios'
+import type { Metadata } from './skoob.types'
+
 type RequestFilters = {
 	shelfId?: number
 	page?: number
@@ -8,7 +11,47 @@ type RequestFilters = {
 export class SkoobService {
 	private readonly baseURL = 'https://www.skoob.com.br'
 	private readonly bookcaseURL = '/v1/bookcase'
+	private readonly userMiniPhotoEndpoint = 'user/user_photo_size:mini/'
 	private readonly booksURL = `${this.baseURL}/${this.bookcaseURL}/books`
+	private readonly userMiniUrl = `${this.baseURL}/v1/${this.userMiniPhotoEndpoint}`
+	private static _instance: SkoobService
+
+	constructor() {
+		if (SkoobService._instance) {
+			return SkoobService._instance
+		}
+		SkoobService._instance = this
+	}
+
+	async logIn(email: string, senha: string) {
+		const url = this.baseURL + '/login'
+		const params = new URLSearchParams()
+		params.append('data[Usuario][email]', email)
+		params.append('data[Usuario][senha]', senha)
+		// params.append('data[Login][automatico]', 'true')
+		await axios
+			.post(url, params, {
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
+				// maxRedirects: 0
+			})
+			.catch((err) => {
+				console.log('ERRO AXIOS = ', err)
+				return { error: true, message: 'Server error' }
+			})
+
+		return { error: false, message: 'Logged In!' }
+	}
+
+	async getUserData() {
+		const userData = await axios.get(this.userMiniUrl, {
+			withCredentials: true
+		})
+		console.log('USER DATA = ', userData)
+		if (!userData.data.success) return { error: true, message: userData.data.cod_description }
+		return { error: false, data: userData.data }
+	}
 
 	async getBooks(id: number, filters?: RequestFilters) {
 		let url = `${this.booksURL}/${id.toString()}`
@@ -30,11 +73,13 @@ export class SkoobService {
 					break
 			}
 		}
-		const response = await fetch(url, {
-			method: 'GET'
-		})
-		const data = await response.json()
+		const response = await axios.get<Metadata>(url)
+		const data = response.data
 
 		return data
+	}
+
+	public static getSkoobService() {
+		return this._instance
 	}
 }
