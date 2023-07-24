@@ -1,21 +1,105 @@
 <script>
 	import '../app.css';
-  import Icon from 'svelte-icons-pack/Icon.svelte'
-  import IoLibrarySharp from "svelte-icons-pack/io/IoLibrarySharp";
-  import ImBooks from "svelte-icons-pack/im/ImBooks";
-  import BsBookFill from "svelte-icons-pack/bs/BsBookFill";
+	import Icon from 'svelte-icons-pack/Icon.svelte';
+	import IoLibrarySharp from 'svelte-icons-pack/io/IoLibrarySharp';
+	import ImBooks from 'svelte-icons-pack/im/ImBooks';
+	import BsBookFill from 'svelte-icons-pack/bs/BsBookFill';
+	import BsBookHalf from 'svelte-icons-pack/bs/BsBookHalf';
+	import BsBook from 'svelte-icons-pack/bs/BsBook';
+	import FaSolidBookReader from 'svelte-icons-pack/fa/FaSolidBookReader';
+	import BsBookmarkXFill from 'svelte-icons-pack/bs/BsBookmarkXFill';
+	import BsBookmarkHeart from 'svelte-icons-pack/bs/BsBookmarkHeart';
+	import BsBookmarkPlus from 'svelte-icons-pack/bs/BsBookmarkPlus';
+	import BsStarFill from 'svelte-icons-pack/bs/BsStarFill';
+	import BsFileText from 'svelte-icons-pack/bs/BsFileText';
+	import FaSolidHandHoldingMedical from 'svelte-icons-pack/fa/FaSolidHandHoldingMedical';
+	import FaSolidHandHolding from 'svelte-icons-pack/fa/FaSolidHandHolding';
+	import FaHandshake from 'svelte-icons-pack/fa/FaHandshake';
+	import SiBookstack from 'svelte-icons-pack/si/SiBookstack';
+	import ImTablet from 'svelte-icons-pack/im/ImTablet';
+	import BsEarbuds from 'svelte-icons-pack/bs/BsEarbuds';
 
 	const shelfs = [
 		{
 			name: 'Todos',
-			id: 1,
+			id: 0,
 			icon: IoLibrarySharp
 		},
-    {
-      name: 'Lidos',
-      id: 2,
-      icon: BsBookFill
-    }
+		{
+			name: 'Lido',
+			id: 1,
+			icon: BsBookFill
+		},
+		{
+			name: 'Lendo',
+			id: 2,
+			icon: BsBookHalf
+		},
+		{
+			name: 'Quero Ler',
+			id: 3,
+			icon: BsBook
+		},
+		{
+			name: 'Relendo',
+			id: 4,
+			icon: FaSolidBookReader
+		},
+		{
+			name: 'Abandonei',
+			id: 5,
+			icon: BsBookmarkXFill
+		},
+		{
+			name: 'Favorito',
+			id: 8,
+			icon: BsBookmarkHeart
+		},
+		{
+			name: 'Desejado',
+			id: 9,
+			icon: BsBookmarkPlus
+		},
+		{
+			name: 'Avaliado',
+			id: 13,
+			icon: BsStarFill
+		},
+		{
+			name: 'Resenhado',
+			id: 14,
+			icon: BsFileText
+		},
+		{
+			name: 'Tenho',
+			id: 6,
+			icon: FaSolidHandHoldingMedical
+		},
+		{
+			name: 'Troco',
+			id: 10,
+			icon: FaSolidHandHolding
+		},
+		{
+			name: 'Emprestei',
+			id: 11,
+			icon: FaHandshake
+		},
+		{
+			name: 'Meta de Leitura',
+			id: 12,
+			icon: SiBookstack
+		},
+		{
+			name: 'Ebook/Digital',
+			id: 7,
+			icon: ImTablet
+		},
+		{
+			name: 'AudioBook',
+			id: 15,
+			icon: BsEarbuds
+		}
 	];
 </script>
 
@@ -55,7 +139,7 @@
 						href={`/${shelf.id}`}
 						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
 					>
-            <Icon src={shelf.icon} color="white"/>
+						<Icon src={shelf.icon} color="white" />
 						<span class="ml-3">{shelf.name}</span>
 					</a>
 				</li>
