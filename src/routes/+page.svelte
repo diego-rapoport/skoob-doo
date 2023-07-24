@@ -17,7 +17,7 @@
 	});
 </script>
 
-<div class="grid grid-cols-1 gap-0 min-[975px]:grid-cols-2 min-[975px]:gap-2.5 xl:grid-cols-3 xl:gap-3.5">
+<div class="grid grid-cols-1 gap-0 min-[975px]:grid-cols-2 min-[975px]:gap-2.5 xl:grid-cols-3 xl:gap-3.5 min-[1600px]:grid-cols-3">
 	{#each books as book}
 		<div
 			class="flex flex-col flex-wrap items-center content-start justify-evenly m-2 rounded-lg bg-sky-950 text-gray-300 h-[13rem] overflow-hidden border border-solid border-white"
