@@ -35,7 +35,7 @@ type Edicao = {
 	tempo_leitura: TempoLeitura
 }
 
-type Book = {
+export type Book = {
 	id: number
 	livro_id: number
 	ranking: number

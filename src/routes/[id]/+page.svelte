@@ -1,20 +1,10 @@
 <script lang="ts">
-	import { SkoobService } from '$lib/skoob.services';
-	import { onMount } from 'svelte';
+  import type {Book} from '$lib/skoob.types'
 
-	const skoobService = new SkoobService();
-	let books: any[] = [];
-	function load() {
-		console.log('LOADING...');
-	}
+  export let data: {books: Book[]};
 
-	onMount(async () => {
-		const res = await skoobService.getBooks(8712917, { shelfId: 1, limit: 5 });
-		if (res.success) {
-			books = res.response;
-		} else books = [];
-		console.log('RES = ', res);
-	});
+  $: books = data.books
+
 </script>
 
 <div class="grid grid-cols-1 gap-0 min-[975px]:grid-cols-2 min-[975px]:gap-2.5 xl:grid-cols-3 xl:gap-3.5 min-[1600px]:grid-cols-3">
