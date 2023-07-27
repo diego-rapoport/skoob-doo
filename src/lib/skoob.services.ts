@@ -75,7 +75,6 @@ export class SkoobService {
 				}
 			})
 		}
-		console.log('FINAL URL =', url)
 		const response = await axios.get<Metadata>(url)
 		const data = response.data
 
