@@ -1,7 +1,6 @@
 import { SkoobService } from '$lib/skoob.services'
 import type { Book } from '$lib/skoob.types'
 
-/** @type {import('./$types').PageLoad} */
 export async function load({
 	params
 }: {
