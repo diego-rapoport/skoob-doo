@@ -148,7 +148,7 @@
 	</div>
 </aside>
 
-<div class="p-4 sm:ml-64 bg-sky-950">
+<div class="min-h-[100vh] p-4 sm:ml-64 bg-sky-950">
 	<div class="">
 		<slot />
 	</div>
