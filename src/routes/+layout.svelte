@@ -1,8 +1,7 @@
-<script>
+<script lang='ts'>
 	import '../app.css';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import IoLibrarySharp from 'svelte-icons-pack/io/IoLibrarySharp';
-	import ImBooks from 'svelte-icons-pack/im/ImBooks';
 	import BsBookFill from 'svelte-icons-pack/bs/BsBookFill';
 	import BsBookHalf from 'svelte-icons-pack/bs/BsBookHalf';
 	import BsBook from 'svelte-icons-pack/bs/BsBook';

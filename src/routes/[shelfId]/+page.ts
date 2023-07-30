@@ -1,5 +1,5 @@
 import { SkoobService } from '$lib/skoob.services'
-import type { Book } from '$lib/skoob.types'
+import type { Book, PagingMetaData } from '$lib/skoob.types'
 import { id } from '../stores'
 
 export async function load({
@@ -16,11 +16,15 @@ export async function load({
 	const skoobService = new SkoobService()
 	const shelfId = params.shelfId
 	let books: Book[] = []
+	let meta: PagingMetaData
+
 	const res = await skoobService.getBooks(myId!, { shelfId: parseInt(shelfId), limit: 10 })
 	if (res.success) {
 		books = res.response
+		meta = res.paging
 	} else books = []
 	return {
-		books
+		books,
+		meta
 	}
 }

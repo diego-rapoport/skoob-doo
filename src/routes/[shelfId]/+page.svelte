@@ -1,9 +1,24 @@
 <script lang="ts">
-	import type { Book } from '$lib/skoob.types';
+	import { page } from '$app/stores';
+	import type { Book, PagingMetadata } from '$lib/skoob.types';
+  import {skoobService} from '$lib/main'
+	import { id } from '../stores';
 
-	export let data: { books: Book[] };
+	export let data: { books: Book[], meta: PagingMetadata };
+  let myId: number
 
-	$: books = data.books;
+	$: books = data.books; let metadata = data.meta; id.subscribe((numId) => myId = numId)
+
+  window.onscroll = async function(ev) {
+    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      if(metadata.next_page) {
+        const nextPage = metadata.page + 1
+        const shelfId = parseInt($page.params.shelfId)
+        const response = await skoobService.getBooks(myId, {shelfId: shelfId, page: nextPage})
+        books = [...books, ...response.response]
+      }
+    }
+  }
 </script>
 
 <div

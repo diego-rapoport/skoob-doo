@@ -55,7 +55,7 @@ export type Book = {
 	edicao: Edicao
 }
 
-type PagingMetadata = {
+export type PagingMetadata = {
 	total: number
 	page_count: number
 	page: number

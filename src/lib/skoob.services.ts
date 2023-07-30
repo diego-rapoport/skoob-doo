@@ -46,7 +46,6 @@ export class SkoobService {
 		const userData = await axios.get(this.userMiniUrl, {
 			withCredentials: true
 		})
-		console.log('USER DATA = ', userData)
 		if (!userData.data.success) return { error: true, message: userData.data.cod_description }
 		return { error: false, data: userData.data }
 	}
