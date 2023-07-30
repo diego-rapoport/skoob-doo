@@ -15,6 +15,7 @@
         const nextPage = metadata.page + 1
         const shelfId = parseInt($page.params.shelfId)
         const response = await skoobService.getBooks(myId, {shelfId: shelfId, page: nextPage})
+        metadata = response.paging
         books = [...books, ...response.response]
       }
     }
