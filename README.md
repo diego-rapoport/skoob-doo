@@ -1,38 +1,30 @@
-# create-svelte
+# Skoob-doo
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A different UI to https://www.skoob.com.br/
 
-## Creating a project
+![](./static/docs/2023-07-30_screenshot.png)
 
-If you're seeing this, you've probably already done this step. Congrats!
+# Progress
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+This is very early stage of what I would like to have as a UI replacement for the original and this is a side project.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+# Motivation
 
-## Developing
+Why? Because I love books and the original UI looks like the 90's internet. Also because I'm a frontend developer and I'm trying some new tech and learning experimentation.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+# Project
+
+This project is created with SvelteKit, for those who are familiar with it. If you wanna run locally:
 
 ```bash
+npm install
+
 npm run dev
 
-# or start the server and open the app in a new browser tab
+# or run this to open the app in a new browser tab
 npm run dev -- --open
 ```
 
-## Building
+# Getting the ID
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+To get your ID, so you can view your books on the shelfs, you have to login into the original platform and check your profile's url. It will look like `skoob.com.br/usuario/[your id here]`
