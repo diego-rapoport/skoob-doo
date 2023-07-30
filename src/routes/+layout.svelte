@@ -132,7 +132,7 @@
 	aria-label="Sidebar"
 >
 	<div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-		<ul class="space-y-2 font-medium">
+		<ul class="space-y-2 font-medium text-2xl">
 			{#each shelfs as shelf}
 				<li>
 					<a
@@ -148,8 +148,8 @@
 	</div>
 </aside>
 
-<div class="min-h-[100vh] p-4 sm:ml-64 bg-sky-950">
-	<div class="">
+<div class="min-h-[100vh] p-4 sm:ml-64 bg-sky-950 flex justify-center">
+	<div class="uppercase">
 		<slot />
 	</div>
 </div>

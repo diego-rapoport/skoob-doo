@@ -28,13 +28,11 @@ export class SkoobService {
 		const params = new URLSearchParams()
 		params.append('data[Usuario][email]', email)
 		params.append('data[Usuario][senha]', senha)
-		// params.append('data[Login][automatico]', 'true')
 		await axios
 			.post(url, params, {
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded'
 				}
-				// maxRedirects: 0
 			})
 			.catch((err) => {
 				console.log('ERRO AXIOS = ', err)
