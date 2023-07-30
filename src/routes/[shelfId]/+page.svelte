@@ -7,9 +7,9 @@
 	export let data: { books: Book[], meta: PagingMetadata };
   let myId: number
 
-	$: books = data.books; let metadata = data.meta; id.subscribe((numId) => myId = numId)
+	$: books = data.books; let metadata = data.meta; id.subscribe((numId) => myId = numId!)
 
-  window.onscroll = async function(ev) {
+  window.onscroll = async function() {
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       if(metadata.next_page) {
         const nextPage = metadata.page + 1

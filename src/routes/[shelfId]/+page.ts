@@ -10,7 +10,7 @@ export async function load({
 		shelfId: string
 	}
 }) {
-	let myId: number
+	let myId: number = 0
 	id.subscribe((val) => {
 		if (val) myId = val
 	})

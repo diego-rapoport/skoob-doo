@@ -3,7 +3,7 @@
 
 	let myId: number;
 	let logged = false;
-	id.subscribe((value) => (myId = value));
+	id.subscribe((value) => (myId = value!));
 	function checkId() {
 		if (myId) {
 			logged = true;
@@ -15,7 +15,7 @@
 	function onSubmit(e: SubmitEvent) {
 		if (!e.target) return;
 		const formData = new FormData(e.target as HTMLFormElement);
-		id.update((myId) => (myId = parseInt(formData.get('ID') as string)));
+		id.update((myId) => (myId = parseInt(formData.get('ID')! as string)));
 		checkId();
 	}
 </script>
