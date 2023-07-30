@@ -138,7 +138,7 @@
 						href={`/${shelf.id}`}
 						class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
 					>
-						<Icon src={shelf.icon} color="white" />
+						<Icon src={shelf.icon} color="white" title={shelf.name}/>
 						<span class="ml-3">{shelf.name}</span>
 					</a>
 				</li>
