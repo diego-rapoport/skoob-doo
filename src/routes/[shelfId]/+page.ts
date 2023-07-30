@@ -1,6 +1,7 @@
 import { SkoobService } from '$lib/skoob.services'
 import type { Book, PagingMetaData } from '$lib/skoob.types'
 import { id } from '../stores'
+import { redirect } from '@sveltejs/kit'
 
 export async function load({
 	params
@@ -18,7 +19,8 @@ export async function load({
 	let books: Book[] = []
 	let meta: PagingMetaData
 
-	const res = await skoobService.getBooks(myId!, { shelfId: parseInt(shelfId), limit: 10 })
+	if (!myId) throw redirect(307, '/')
+	const res = await skoobService.getBooks(myId, { shelfId: parseInt(shelfId), limit: 10 })
 	if (res.success) {
 		books = res.response
 		meta = res.paging
